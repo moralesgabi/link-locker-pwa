@@ -1,0 +1,24 @@
+{
+    "name": "Link Locker - Gerenciador de Links",
+    "short_name": "Link Locker",
+    "description": "Salve, organize e compartilhe seus links favoritos!",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4169E1",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ]
+}

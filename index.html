@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4169E1">
+    <meta name="description" content="Link Locker - Salve, organize e compartilhe seus links favoritos!">
+    <title>Link Locker</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+</head>
+<body>
+    <header>
+        <h1>Link Locker</h1>
+        <p>Salve, organize e compartilhe seus links</p>
+    </header>
+    
+    <main>
+        <section id="form-section">
+            <h2>Adicionar Novo Link</h2>
+            <form id="link-form">
+                <div class="form-group">
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" required placeholder="Nome do site">
+                </div>
+                <div class="form-group">
+                    <label for="url">URL</label>
+                    <input type="url" id="url" name="url" required placeholder="https://exemplo.com">
+                </div>
+                <div class="form-group">
+                    <label for="category">Categoria</label>
+                    <select id="category" name="category">
+                        <option value="trabalho">Trabalho</option>
+                        <option value="estudo">Estudo</option>
+                        <option value="lazer">Lazer</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+                <button type="submit" id="save-button">Salvar</button>
+                <button type="button" id="cancel-button" style="display: none;">Cancelar</button>
+            </form>
+        </section>
+
+        <section id="filter-section">
+            <h2>Meus Links</h2>
+            <category-filter></category-filter>
+        </section>
+
+        <section id="links-container">
+            <div id="links-list"></div>
+            <div id="no-links" class="hidden">
+                <p>Você ainda não tem links salvos.</p>
+            </div>
+        </section>
+        
+        <div id="connection-status" class="offline hidden">
+            <p>Você está offline. Algumas funcionalidades podem estar limitadas.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>Gabrielle Morales &copy; 2025 - Programação para Dispositivos Móveis II</p>
+    </footer>
+    
+    <script src="assets/js/db.js"></script>
+    <script src="assets/js/components/category-filter.js"></script>
+    <script src="assets/js/components/link-item.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>
+        
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('Service Worker registrado!', reg))
+                    .catch(err => console.log('Erro ao registrar Service Worker:', err));
+            });
+        }
+    </script>
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+</body>
+</html>
